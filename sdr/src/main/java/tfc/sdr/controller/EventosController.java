@@ -13,7 +13,7 @@ import tfc.sdr.model.Evento;
 import tfc.sdr.service.IEventosService;
 
 @Controller
-@RequestMapping("/eventos")
+//@RequestMapping("/eventos") //al clicar en el nav eventos cuando ya estas en eventos lista da error
 public class EventosController {
 	
 	@Autowired
