@@ -7,5 +7,7 @@ import tfc.sdr.model.Evento;
 public interface IEventosService {
 	
 	List<Evento> buscarTodos();
+	
+	Evento buscarPorId(int idEvento);
 
 }

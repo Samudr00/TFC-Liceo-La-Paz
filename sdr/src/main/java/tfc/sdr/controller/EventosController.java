@@ -6,14 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.PathVariable;
 
 import tfc.sdr.model.Evento;
 import tfc.sdr.service.IEventosService;
 
 @Controller
-//@RequestMapping("/eventos") //al clicar en el nav eventos cuando ya estas en eventos lista da error
 public class EventosController {
 	
 	@Autowired
@@ -26,4 +24,11 @@ public class EventosController {
 		return "eventos/listEventos";
 	}
 
+	@GetMapping("/detalle/{id}")
+	public String verDetalle(@PathVariable("id") int idVacante, Model model) {
+		Evento evento = serviceEventos.buscarPorId(idVacante);
+		model.addAttribute("evento",evento);
+		return "eventos/detalle";
+	}
+	
 }

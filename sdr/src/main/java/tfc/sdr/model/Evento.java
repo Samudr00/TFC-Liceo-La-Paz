@@ -25,6 +25,7 @@ public class Evento {
 	@Enumerated(value = EnumType.STRING)
 	private Verificacion verificacion;
 	private Integer contador;
+	private String hora;
 	
 	public Integer getId() {
 		return id;
@@ -75,11 +76,17 @@ public class Evento {
 		this.contador = contador;
 	}
 	
+	public String getHora() {
+		return hora;
+	}
+	public void setHora(String hora) {
+		this.hora = hora;
+	}
 	@Override
 	public String toString() {
 		return "Evento [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fecha=" + fecha
 				+ ", numeroParticipantes=" + numeroParticipantes + ", ubicacion=" + ubicacion + ", verificacion="
-				+ verificacion + ", contador=" + contador + "]";
+				+ verificacion + ", contador=" + contador + ", hora=" + hora + "]";
 	}
 
 	
