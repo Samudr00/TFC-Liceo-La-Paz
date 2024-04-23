@@ -29,4 +29,9 @@ public class EventosServiceImpl implements IEventosService{
 		return null;
 	}
 
+	@Override
+	public Evento guardarEvento(Evento evento) {
+		return eventosRepo.save(evento);
+	}
+
 }

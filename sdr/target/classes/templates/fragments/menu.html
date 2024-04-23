@@ -1,24 +1,23 @@
-<nav th:fragment="menu-principal" class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav th:fragment="menu-principal" class="navbar navbar-expand-lg navbar-dark" style="background-color: #ffdbb0;">
   <div class="container">
     <div class="collapse navbar-collapse" id="navbarButtonsExample">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-        	<a class="nav-link" href="/">Home</a>
+        	<a class="nav-link" href="/" style="color: #000000;"><strong>Home</strong></a>
         </li>
         <li class="nav-item">
-        	<a class="nav-link" href="/lista">Eventos</a>
+        	<a class="nav-link" href="/lista" style="color: #000000;"><strong>Eventos</strong></a>
         </li>
         <li class="nav-item">
-        	<a class="nav-link" href="/lista">Eventos</a>
+        	<a class="nav-link" href="/lista" style="color: #000000;"><strong>Info.</strong></a>
         </li>
       </ul>
 
       <div class="ml-auto">
-         <a class="btn btn-primary" href="#">Ingresar</a>
-         <a class="btn btn-primary" href="#">Registrarse</a>
-		<a class="btn btn-primary" href="/logout">Logout</a>
+         <a class="btn" href="#" style="background-color: #62e6d4;"><strong>Ingresar</strong></a>
+         <a class="btn" href="#" style="background-color: #62e6d4;"><strong>Registrarse</strong></a>
+		<a class="btn" href="/logout" style="background-color: #ff684b;"><strong>Salir</strong></a>
       </div>
     </div>
   </div>
 </nav>
-

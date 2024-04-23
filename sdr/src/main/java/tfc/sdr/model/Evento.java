@@ -1,6 +1,9 @@
 package tfc.sdr.model;
 
+import java.time.LocalDate;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -19,11 +22,12 @@ public class Evento {
 	private Integer id;
 	private String nombre;
 	private String descripcion;
-	private Date fecha;
+	//@DateTimeFormat(pattern = "dd-MM-yyyy")
+	private LocalDate fecha;
 	private Integer numeroParticipantes;
 	private String ubicacion;
 	@Enumerated(value = EnumType.STRING)
-	private Verificacion verificacion;
+	private Verificacion verificacion = Verificacion.NoVerificado;
 	private Integer contador;
 	private String hora;
 	
@@ -45,10 +49,10 @@ public class Evento {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public Date getFecha() {
+	public LocalDate getFecha() {
 		return fecha;
 	}
-	public void setFecha(Date fecha) {
+	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}
 	public Integer getNumeroParticipantes() {

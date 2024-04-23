@@ -10,4 +10,6 @@ public interface IEventosService {
 	
 	Evento buscarPorId(int idEvento);
 
+	Evento guardarEvento(Evento evento);
+
 }

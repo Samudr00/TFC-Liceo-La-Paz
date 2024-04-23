@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import tfc.sdr.model.Evento;
 import tfc.sdr.service.IEventosService;
@@ -31,4 +32,18 @@ public class EventosController {
 		return "eventos/detalle";
 	}
 	
+	@GetMapping("/insertar")
+	public String insertarEvento(Evento evento) {
+		return "eventos/formEventos";
+	}
+	
+	@PostMapping("/guardar")
+	public String guardarEvento(Evento evento) {
+		evento.setContador(0);
+		serviceEventos.guardarEvento(evento);
+		return "redirect:/lista";
+	}
+	
 }
+	
+

@@ -19,7 +19,7 @@
       <h5 class="card-title" th:text="${evento.nombre}"></h5>
       <p class="card-text" th:text="${evento.descripcion}"></p>
       <ul class="list-group list-group-flush">
-		<li class="list-group-item"><strong>Fecha:</strong> <span th:text="${#dates.format(evento.fecha, 'dd/MM/yyyy')}"></span><br><strong> Hora:</strong> <span th:text="${evento.hora}"></span></li>
+		<li class="list-group-item"><strong>Fecha:</strong> <span th:text="${evento.fecha}"></span><br><strong> Hora:</strong> <span th:text="${evento.hora}"></span></li>
         <li class="list-group-item"><strong>Ubicación:</strong> <span th:text="${evento.ubicacion}"></span></li>
         <li class="list-group-item"><strong>Numero máximo de participantes:</strong> <span th:text="${evento.numeroParticipantes}"></span></li>
         <li class="list-group-item" th:text="${evento.verificacion}"></li>
