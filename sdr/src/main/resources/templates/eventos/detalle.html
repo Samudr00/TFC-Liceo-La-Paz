@@ -27,8 +27,8 @@
       </ul>
     </div>
     <div class="card-footer text-muted">
-      <a href="#" class="btn btn-primary">Editar</a>
-      <a href="#" class="btn btn-danger">Eliminar</a>
+      <a th:href="@{/modificar/{id} (id=${evento.id}) }" class="btn" style="background-color: #C39BD3;"><strong>Editar</strong></a>
+		<a th:href="@{/eliminar/{id} (id=${evento.id}) }" class="btn" style="background-color: #ff684b;"><strong>Borrar</strong></a> 
     </div>
   </div>
 </div><br><br>

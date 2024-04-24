@@ -5,13 +5,22 @@
 <title>Lista de Eventos</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
 </head>
 <body>
 	<header th:insert="fragments/menu :: menu-principal"></header><br><br>
+<div class="container mt-3"> <!-- Agrega un margen superior -->
+    <div class="row">
+        <div class="col"> <!-- Utiliza las columnas para alinear el botón -->
+            <a class="btn ms-3" href="/insertar" role="btn" style="background-color: #C39BD3;"><strong>Crea tu Evento</strong></a>
+        </div>
+    </div>
+</div>      
       <h1 class="text-center mt-4 mb-5">Lista de eventos</h1>
-    <hr>
-	   <a class="btn btn-primary" href="/insertar" role="button"><i class="fas fa-file" aria-hidden="true"></i> Crea tu Evento</a>  
-	<hr>  
     
 <div class="container">
   <div class="row">
@@ -25,7 +34,6 @@
               <th scope="col">Descripción</th>
               <th scope="col">Verificado</th>
               <th scope="col">Información</th>
-          
             </tr>
           </thead>
           <tbody>
@@ -35,7 +43,7 @@
            	 	<td th:text="${evento.descripcion}"></td>
            		<td th:text="${evento.verificacion}"></td>
               	<td>
-                	<a th:href="@{/detalle/{id} (id=${evento.id})}" class="btn btn-primary">Detalles</a>
+                	<a th:href="@{/detalle/{id} (id=${evento.id})}" class="btn" style="background-color: #C39BD3;"><strong>Detalles</strong></a>
               	</td>
             </tr>
           </tbody>
@@ -43,7 +51,7 @@
       </div>
     </div>
   </div>
-</div>
+</div><br><br>
     
 </body>
 <footer th:insert="fragments/footer :: pie-pagina" class="footer"></footer>

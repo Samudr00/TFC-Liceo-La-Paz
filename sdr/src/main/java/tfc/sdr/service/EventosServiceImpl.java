@@ -33,5 +33,10 @@ public class EventosServiceImpl implements IEventosService{
 	public Evento guardarEvento(Evento evento) {
 		return eventosRepo.save(evento);
 	}
+	
+	@Override
+	public void eliminar(int idEvento) {
+		eventosRepo.deleteById(idEvento);
+	}
 
 }

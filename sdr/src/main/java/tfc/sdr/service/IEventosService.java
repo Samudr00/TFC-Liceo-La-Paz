@@ -12,4 +12,6 @@ public interface IEventosService {
 
 	Evento guardarEvento(Evento evento);
 
+	void eliminar(int idEvento);
+
 }

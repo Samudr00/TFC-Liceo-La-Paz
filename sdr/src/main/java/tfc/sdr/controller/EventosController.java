@@ -44,6 +44,19 @@ public class EventosController {
 		return "redirect:/lista";
 	}
 	
+	@GetMapping("/eliminar/{id}")
+	public String eliminar(@PathVariable("id") int idEvento) {
+		serviceEventos.eliminar(idEvento);
+		System.out.println("borrado");
+		return "redirect:/lista";
+	}
+	
+	@GetMapping("/modificar/{id}") //no funciona
+	public String modificar(@PathVariable("id") int idEvento, Model model) {
+		Evento evento = serviceEventos.buscarPorId(idEvento);
+		model.addAttribute("evento",evento);
+		return "eventos/formEventos";
+	}
 }
 	
 
