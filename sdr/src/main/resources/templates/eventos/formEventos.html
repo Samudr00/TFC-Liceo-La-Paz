@@ -12,6 +12,7 @@
         <h1 class="mb-4">Formulario de Evento</h1>
         <form th:action="@{/guardar}" method="POST" th:object="${evento}">
             <div class="mb-3">
+              	<input type="hidden" th:field="*{id}">
                 <label for="nombre" class="form-label">Nombre:</label>
                 <input type="text" th:field="*{nombre}" class="form-control" id="nombre" placeholder="Ingrese el nombre del evento">
             </div>
