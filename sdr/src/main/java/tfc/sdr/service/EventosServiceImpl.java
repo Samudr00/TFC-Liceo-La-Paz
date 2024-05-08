@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import tfc.sdr.model.Evento;
@@ -37,6 +38,11 @@ public class EventosServiceImpl implements IEventosService{
 	@Override
 	public void eliminar(int idEvento) {
 		eventosRepo.deleteById(idEvento);
+	}
+
+	@Override
+	public List<Evento> buscarByExample(Example<Evento> example) {
+		return eventosRepo.findAll(example);
 	}
 
 }

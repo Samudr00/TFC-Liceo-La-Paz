@@ -2,6 +2,8 @@ package tfc.sdr.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Example;
+
 import tfc.sdr.model.Evento;
 
 public interface IEventosService {
@@ -14,5 +16,6 @@ public interface IEventosService {
 
 	void eliminar(int idEvento);
 
+	List<Evento> buscarByExample(Example<Evento> example);
 
 }

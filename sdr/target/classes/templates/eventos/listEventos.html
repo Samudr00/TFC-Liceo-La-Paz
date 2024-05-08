@@ -13,13 +13,23 @@
 </head>
 <body>
 	<header th:insert="fragments/menu :: menu-principal"></header><br><br>
-<div class="container mt-3"> <!-- Agrega un margen superior -->
+
+
+<div class="container mt-3">
     <div class="row">
-        <div class="col"> <!-- Utiliza las columnas para alinear el botón -->
+        <div class="col"> 
             <a class="btn ms-3" href="/insertar" role="btn" style="background-color: #C39BD3;"><strong>Crea tu Evento</strong></a>
         </div>
+        <div class="col">
+			<form class="d-flex" th:action="@{/search}" method="get" th:object="${search}"> <!-- Añade las llaves ${} para la expresión Thymeleaf -->
+    			<input class="form-control me-2" th:field="*{nombre}" type="text" name="nombre" placeholder="Buscar por nombre..." aria-label="Buscar">
+    			<button class="btn btn-outline-secondary" type="submit">Buscar</button>
+			</form>
+        </div>
     </div>
-</div>      
+</div>
+
+
       <h1 class="text-center mt-4 mb-5">Lista de eventos</h1>
     
 <div class="container">
