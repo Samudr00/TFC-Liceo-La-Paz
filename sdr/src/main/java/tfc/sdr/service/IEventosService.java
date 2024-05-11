@@ -18,4 +18,6 @@ public interface IEventosService {
 
 	List<Evento> buscarByExample(Example<Evento> example);
 
+	List<Evento> buscarEventosVerificados();
+
 }

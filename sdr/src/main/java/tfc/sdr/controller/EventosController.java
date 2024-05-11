@@ -1,4 +1,4 @@
-package tfc.sdr.controller;
+	package tfc.sdr.controller;
 
 import java.util.List;
 
@@ -71,6 +71,14 @@ public class EventosController {
         Example<Evento> example = Example.of(evento, matcher);
         List<Evento> lista = serviceEventos.buscarByExample(example);
         model.addAttribute("eventosList", lista); 
+        return "eventos/listEventos";
+    }
+    
+    @GetMapping("/filtrarVerificados")
+    public String filtrarVerificados(Model model) {
+        List<Evento> listaVerificados = serviceEventos.buscarEventosVerificados();
+        model.addAttribute("eventosList", listaVerificados);
+        model.addAttribute("search", new Evento());
         return "eventos/listEventos";
     }
 	

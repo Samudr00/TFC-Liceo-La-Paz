@@ -8,6 +8,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import tfc.sdr.model.Evento;
+import tfc.sdr.model.Verificacion;
 import tfc.sdr.repository.EventosRepository;
 
 @Service
@@ -43,6 +44,11 @@ public class EventosServiceImpl implements IEventosService{
 	@Override
 	public List<Evento> buscarByExample(Example<Evento> example) {
 		return eventosRepo.findAll(example);
+	}
+
+	@Override
+	public List<Evento> buscarEventosVerificados() {
+		return eventosRepo.findByVerificacion(Verificacion.Verificado);
 	}
 
 }

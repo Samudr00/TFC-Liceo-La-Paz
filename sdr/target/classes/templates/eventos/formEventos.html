@@ -38,6 +38,14 @@
                 <label for="numeroParticipantes" class="form-label">Número máximo de participantes:</label>
                 <input type="number" th:field="*{numeroParticipantes}" class="form-control" id="numeroParticipantes" placeholder="Ingrese el número máximo de participantes">
             </div>
+             <div class="mb-3">
+    			<label for="verificacion" class="form-label">Verificación:</label>
+    				<select th:field="*{verificacion}" class="form-select" id="verificacion">
+        				<option value="NoVerificado">No Verificado</option>
+        				<option value="Verificado">Verificado</option>
+    				</select>
+			</div>
+
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div><br><br>
