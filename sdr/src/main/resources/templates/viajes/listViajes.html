@@ -16,6 +16,32 @@
 	<header th:insert="fragments/menu :: menu-principal"></header><br><br>
 
       <h1 class="text-center mt-4 mb-5">Lista de Viajes</h1>
+      
+      
+      <div class="container mt-3">
+    <div class="row">
+        <div class="col"> 
+            <a class="btn ms-3" href="/insertarViaje" role="btn" style="background-color: #C39BD3;"><strong>Crea tu Viaje</strong></a>
+        
+        <div class="container mt-5">
+        <h1>Buscar Viajes por Presupuesto</h1>
+        <form th:action="@{/buscar-por-presupuesto}" method="get">
+            <div class="mb-3">
+                <label for="presupuestoMinimo" class="form-label">Presupuesto Mínimo:</label>
+                <input type="number" class="form-control" id="presupuestoMinimo" name="presupuestoMinimo">
+            </div>
+            <div class="mb-3">
+                <label for="presupuestoMaximo" class="form-label">Presupuesto Máximo:</label>
+                <input type="number" class="form-control" id="presupuestoMaximo" name="presupuestoMaximo">
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+    </div>
+       
+    </div>
+    </div>
+    </div>
+<br><br>
 
 <div class="container">
   <div class="row">
@@ -27,8 +53,9 @@
             <tr>
               <th scope="col">Destino</th>
               <th scope="col">Salida</th>
-              <th scope="col">Fecha de inicio</th>
+              <th scope="col">Fecha de inicio y transporte</th>
               <th scope="col">Presupuesto</th>
+              <th scope="col">Información</th>
             </tr>
           </thead>
           <tbody>
@@ -36,9 +63,10 @@
             <tr th:each="viaje : ${viajesList}">
             	<td th:text="${viaje.destino}"></td>
             	<td th:text="${viaje.salida}"></td>
-            	<td th:text="${viaje.fechaInicio}"></td>
+            	<td th:text="${viaje.fechaInicio} + ' a las ' + ${viaje.horaSalida} + ' en ' + ${viaje.transporte}"></td>
             	<td th:text="${viaje.presupuesto} + ' €'"></td>
               	<td>
+                	<a th:href="@{/detalleViajes/{id} (id=${viaje.id})}" class="btn" style="background-color: #C39BD3;"><strong>Detalles</strong></a>              		
               	</td>
             </tr>
           </tbody>

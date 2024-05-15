@@ -8,4 +8,11 @@ public interface IViajesService {
 
 	List<Viaje> buscarTodos();
 
+	Viaje buscarPorId(int idViaje);
+
+	Viaje guardarViaje(Viaje viaje);
+
+	void eliminarViaje(int idViaje);
+
+	List<Viaje> buscarPorPresupuesto(Integer presupuestoMinimo, Integer presupuestoMaximo);
 }

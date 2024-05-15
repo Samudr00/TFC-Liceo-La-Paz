@@ -1,5 +1,7 @@
 	package tfc.sdr.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +35,8 @@ public class EventosController {
     }
 
 	@GetMapping("/detalle/{id}")
-	public String verDetalle(@PathVariable("id") int idVacante, Model model) {
-		Evento evento = serviceEventos.buscarPorId(idVacante);
+	public String verDetalle(@PathVariable("id") int idEvento, Model model) {
+		Evento evento = serviceEventos.buscarPorId(idEvento);
 		model.addAttribute("evento",evento);
 		return "eventos/detalle";
 	}
@@ -60,10 +62,11 @@ public class EventosController {
 	
 	@GetMapping("/modificar/{id}") 
 	public String modificar(@PathVariable("id") int idEvento, Model model) {
-		Evento evento = serviceEventos.buscarPorId(idEvento);
-		model.addAttribute("evento",evento);
-		return "eventos/formEventos";
+	    Evento evento = serviceEventos.buscarPorId(idEvento);
+	    model.addAttribute("evento", evento);
+	    return "eventos/formEventos";
 	}
+
 	
     @GetMapping("/search")
     public String buscar(@ModelAttribute("search") Evento evento, Model model) {

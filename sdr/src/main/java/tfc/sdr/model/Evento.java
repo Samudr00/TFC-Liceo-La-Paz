@@ -22,7 +22,7 @@ public class Evento {
 	private Integer id;
 	private String nombre;
 	private String descripcion;
-	//@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fecha;
 	private Integer numeroParticipantes;
 	private String ubicacion;

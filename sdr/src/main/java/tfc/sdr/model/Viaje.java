@@ -2,6 +2,8 @@ package tfc.sdr.model;
 
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -21,10 +23,16 @@ public class Viaje {
 	private String salida;
 	@Enumerated(value = EnumType.STRING)
 	private Transporte transporte;
+	@Enumerated(value = EnumType.STRING)
+	private TransporteRegreso transporteRegreso;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaInicio;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaFin;
 	private Integer presupuesto;
 	private String descripcion;
+	private String horaSalida;
+	private String horaRegreso;
 	public Integer getId() {
 		return id;
 	}
@@ -48,6 +56,12 @@ public class Viaje {
 	}
 	public void setTransporte(Transporte transporte) {
 		this.transporte = transporte;
+	}
+	public TransporteRegreso getTransporteRegreso() {
+		return transporteRegreso;
+	}
+	public void setTransporteRegreso(TransporteRegreso transporteRegreso) {
+		this.transporteRegreso = transporteRegreso;
 	}
 	public LocalDate getFechaInicio() {
 		return fechaInicio;
@@ -73,13 +87,29 @@ public class Viaje {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+	public String getHoraSalida() {
+		return horaSalida;
+	}
+	public void setHoraSalida(String horaSalida) {
+		this.horaSalida = horaSalida;
+	}
+	public String getHoraRegreso() {
+		return horaRegreso;
+	}
+	public void setHoraRegreso(String horaRegreso) {
+		this.horaRegreso = horaRegreso;
+	}
+	
 	@Override
 	public String toString() {
 		return "Viaje [id=" + id + ", destino=" + destino + ", salida=" + salida + ", transporte=" + transporte
-				+ ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", presupuesto=" + presupuesto
-				+ ", descripcion=" + descripcion + "]";
+				+ ", transporteRegreso=" + transporteRegreso + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin
+				+ ", presupuesto=" + presupuesto + ", descripcion=" + descripcion + ", horaSalida=" + horaSalida
+				+ ", horaRegreso=" + horaRegreso + "]";
 	}
-
+	
+	
+	
 	
 	
 }
