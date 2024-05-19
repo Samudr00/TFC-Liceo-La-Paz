@@ -8,6 +8,7 @@
 <style>
         body {
             background-color: #ffffff;
+            font-family:  Comic Sans MS;
         }
     </style>
 </head>
@@ -22,10 +23,14 @@
         <div class="col"> 
             <a class="btn ms-3" href="/insertar" role="btn" style="background-color: #C39BD3;"><strong>Crea tu Evento</strong></a>
         </div>
+        <div class="col"> 
+            <a class="btn ms-3" href="/filtrarVerificados" role="btn" style="background-color: #C39BD3;"><strong>Eventos Verificados</strong></a>
+        </div>
         <div class="col">
-			<form class="d-flex" th:action="@{/search}" method="get" th:object="${search}"> <!-- Añade las llaves ${} para la expresión Thymeleaf -->
+			<form class="d-flex" th:action="@{/search}" method="get" th:object="${search}">
     			<input class="form-control me-2" th:field="*{nombre}" type="text" name="nombre" placeholder="Buscar por nombre..." aria-label="Buscar">
-    			<button class="btn btn-outline-secondary" type="submit">Buscar</button>
+    			<button class="btn btn-outline-secondary me-2" type="submit">Buscar</button>
+    			<a href="/lista" class="btn btn-secondary">Reset</a>
 			</form>
         </div>
     </div>

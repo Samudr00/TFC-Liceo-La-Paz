@@ -30,10 +30,8 @@ public class Usuario {
             joinColumns = @JoinColumn(name = "idUsuario"),
             inverseJoinColumns = @JoinColumn(name = "idPerfil")
     )
-    
 	private List<Perfil> perfiles;
 
-	
 	public void agregar(Perfil temPerfil) {
 		if (perfiles == null) {
 			perfiles = new LinkedList<Perfil>();
@@ -84,11 +82,9 @@ public class Usuario {
 	public void setEstatus(Integer estatus) {
 		this.estatus = estatus;
 	}
+	
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", email=" + email + ", username=" + username
-				+ ", password=" + password + ", estatus=" + estatus + "]";
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", email=" + email + ", username=" + username + ", password=" + password + ", estatus=" + estatus + "]";
 	}
-	
-	
 }

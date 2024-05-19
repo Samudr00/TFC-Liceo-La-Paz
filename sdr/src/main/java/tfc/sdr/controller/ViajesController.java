@@ -60,7 +60,7 @@ public class ViajesController {
 		return "viajes/formViajes";
 	}
 	
-	@GetMapping("/buscar-por-presupuesto")
+	@GetMapping("/buscarPorPresupuesto")
 	public String buscarPorPresupuesto(@RequestParam("presupuestoMinimo") Integer presupuestoMinimo, 
 	                                   @RequestParam("presupuestoMaximo") Integer presupuestoMaximo,
 	                                   Model model) {

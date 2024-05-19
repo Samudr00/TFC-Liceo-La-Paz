@@ -1,7 +1,5 @@
-	package tfc.sdr.controller;
+package tfc.sdr.controller;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +72,7 @@ public class EventosController {
         Example<Evento> example = Example.of(evento, matcher);
         List<Evento> lista = serviceEventos.buscarByExample(example);
         model.addAttribute("eventosList", lista); 
+        System.out.println(lista);
         return "eventos/listEventos";
     }
     
@@ -84,12 +83,14 @@ public class EventosController {
         model.addAttribute("search", new Evento());
         return "eventos/listEventos";
     }
+
 	
 	@ModelAttribute
 	public void setGenericos(Model model) {
 		Evento eventoSearch = new Evento();
 		model.addAttribute("eventos", serviceEventos.buscarTodos());
 		model.addAttribute("search", eventoSearch);
+		//eventoSearch.reset();
 	}
 	
 	@InitBinder

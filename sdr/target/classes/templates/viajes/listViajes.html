@@ -8,39 +8,53 @@
 <style>
         body {
             background-color: #ffffff;
+            font-family:  Comic Sans MS;
         }
     </style>
 </head>
 <body>
 
-	<header th:insert="fragments/menu :: menu-principal"></header><br><br>
+	<header th:insert="fragments/menu :: menu-principal"></header><br><br><br>
 
-      <h1 class="text-center mt-4 mb-5">Lista de Viajes</h1>
+      <h1 class="text-center">Lista de Viajes</h1>
       
-      
-      <div class="container mt-3">
-    <div class="row">
-        <div class="col"> 
+<div class="container mt-3">
+    <div class="row align-items-end">
+        <div class="col align-self-end"> 
             <a class="btn ms-3" href="/insertarViaje" role="btn" style="background-color: #C39BD3;"><strong>Crea tu Viaje</strong></a>
-        
-        <div class="container mt-5">
-        <h1>Buscar Viajes por Presupuesto</h1>
-        <form th:action="@{/buscar-por-presupuesto}" method="get">
-            <div class="mb-3">
-                <label for="presupuestoMinimo" class="form-label">Presupuesto Mínimo:</label>
-                <input type="number" class="form-control" id="presupuestoMinimo" name="presupuestoMinimo">
+        </div>
+        <div class="col">
+            <div class="container mt-5">
+                <h5>Busca Viajes por precio</h5>
+                <form th:action="@{/buscarPorPresupuesto}" method="get" class="row align-items-end">
+                    <div class="mb-3 col-4">
+                        <label for="presupuestoMinimo" class="form-label">Desde:</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="presupuestoMinimo" name="presupuestoMinimo">
+                            <span class="input-group-text">€</span>
+                        </div>
+                    </div>
+                    <div class="mb-3 col-4">
+                        <label for="presupuestoMaximo" class="form-label">Hasta:</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="presupuestoMaximo" name="presupuestoMaximo">
+                            <span class="input-group-text">€</span>
+                        </div>
+                    </div>
+                    <div class="mb-3 col-auto">
+                        <button type="submit" class="btn" style="background-color: #C39BD3;">Buscar</button>
+                      	<a href="/listaViajes" class="btn btn-secondary" >Reset</a>
+                        
+                    </div>
+                    
+                </form>
             </div>
-            <div class="mb-3">
-                <label for="presupuestoMaximo" class="form-label">Presupuesto Máximo:</label>
-                <input type="number" class="form-control" id="presupuestoMaximo" name="presupuestoMaximo">
-            </div>
-            <button type="submit" class="btn btn-primary">Buscar</button>
-        </form>
+        </div>
     </div>
-       
-    </div>
-    </div>
-    </div>
+</div>
+
+
+    
 <br><br>
 
 <div class="container">

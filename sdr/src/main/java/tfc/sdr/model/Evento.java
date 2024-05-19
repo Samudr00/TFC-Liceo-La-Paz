@@ -27,9 +27,13 @@ public class Evento {
 	private Integer numeroParticipantes;
 	private String ubicacion;
 	@Enumerated(value = EnumType.STRING)
-	private Verificacion verificacion = Verificacion.NoVerificado;
+	private Verificacion verificacion; //= Verificacion.NoVerificado en caso de implementar security para que los usuarios creen eventos siempre en NoVerificado;
 	private Integer contador;
 	private String hora;
+	
+	public void verificado() {
+		this.verificacion = Verificacion.Verificado;
+	}
 	
 	public Integer getId() {
 		return id;
