@@ -23,7 +23,7 @@ public class Usuario {
 	private String email;
 	private String username;
 	private String password;
-	private Integer estatus;
+	private Integer estatus = 1;
 	
     @ManyToMany
     @JoinTable(name = "usuarioperfil",

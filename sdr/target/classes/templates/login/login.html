@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <style>
         body {
-            background-color: #ffffff;
+            background-color: #d6dbdf;
             font-family: Comic Sans MS;
         }
        
@@ -48,6 +48,7 @@
 <body>
     <div class="login-container fade-in">
         <div class="login-header text-center">
+        
             <h2>Login</h2>
         </div>
         <form action="/login" method="post">
@@ -59,7 +60,9 @@
                 <label for="password" class="form-label">Contraseña:</label>
                 <input type="password" id="password" name="password" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-primary w-100">Iniciar sesión</button>
+            <button type="submit" class="btn btn-primary w-100">Iniciar sesión</button><br>
+            <hr>
+            <a class="btn w-100" href="/crearUsuario" style="background-color: #C39BD3;"><strong>Registrarse</strong></a>
         </form>
         <div th:if="${error}" class="alert alert-danger" role="alert">
             <p th:text="${error}"></p>

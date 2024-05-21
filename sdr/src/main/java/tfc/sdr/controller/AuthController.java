@@ -23,7 +23,7 @@ public class AuthController {
     private IUsuariosService serviceUsuarios;
 
     @GetMapping("/login")
-    public String showLoginForm() {
+    public String login() {
         return "login/login";  
     }
 
@@ -33,7 +33,7 @@ public class AuthController {
         
         if (usuario != null && usuario.getPassword().equals(password)) {
             HttpSession session = request.getSession();
-            session.setAttribute("usuario", username);
+            session.setAttribute("usuario", usuario); // Almacena el objeto completo del usuario en la sesion
             return "redirect:/";
         }
         
@@ -41,12 +41,14 @@ public class AuthController {
         return "login/login";
     }
 
+
     @GetMapping("/logout")
     public String logout(HttpServletRequest request) {
         HttpSession session = request.getSession();
         session.invalidate();
         return "redirect:/login";
     }
+
 
     @GetMapping("/crearUsuario")
     public String insertarUsuario(Usuario usuario) {
