@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Evento</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Comic Sans MS;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header th:insert="fragments/menu :: menu-principal"></header>
+
+    <div class="container mt-5 fade-in">
+        <h1 class="mb-4">Crea tu propio Evento</h1>
+        <form th:action="@{/guardar}" method="POST" th:object="${evento}">
+            <div class="mb-3">
+                <input type="hidden" th:field="*{id}">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input type="text" th:field="*{nombre}" class="form-control" id="nombre" placeholder="Ingrese el nombre del evento" required>
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción:</label>
+                <input type="text" th:field="*{descripcion}" class="form-control" id="descripcion" placeholder="Ingrese una descripción del evento" required>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="fecha" class="form-label">Fecha:</label>
+                    <input type="date" th:field="*{fecha}" class="form-control" id="fecha" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="hora" class="form-label">Hora:</label>
+                    <input type="time" th:field="*{hora}" class="form-control" id="hora" required>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="ubicacion" class="form-label">Ubicación:</label>
+                <input type="text" th:field="*{ubicacion}" class="form-control" id="ubicacion" placeholder="Ingrese la ubicación del evento" required>
+            </div>
+            <div class="mb-3">
+                <label for="numeroParticipantes" class="form-label">Número máximo de participantes:</label>
+                <input type="number" th:field="*{numeroParticipantes}" class="form-control" id="numeroParticipantes" placeholder="Ingrese el número máximo de participantes" required>
+            </div>
+            <div th:if="${roles != null and (roles.contains('ADMINISTRADOR') or roles.contains('SUPERVISOR'))}" class="mb-3 text-muted">
+                <label for="verificacion" class="form-label">Verificación:</label>
+                <select th:field="*{verificacion}" class="form-select" id="verificacion">
+                    <option value="NoVerificado">No Verificado</option>
+                    <option value="Verificado">Verificado</option>
+                </select>
+            </div>
+            <button type="submit" class="btn" style="background-color: #C39BD3;"><strong>Guardar</strong></button>
+        </form>
+    </div><br><br>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+<footer th:insert="fragments/footer :: pie-pagina" class="footer"></footer>
+</html>

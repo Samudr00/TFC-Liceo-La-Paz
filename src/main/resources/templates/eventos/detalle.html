@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Detalle del Evento</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<style>
+         body {
+        background-color: #f8f9fa;
+            font-family:  Comic Sans MS;
+        }
+            .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+    @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+</style>
+<body>
+    <header th:insert="fragments/menu :: menu-principal"></header><br><br>
+    
+    <div class="container mt-5 fade-in">
+        <div class="card">
+            <div class="card-header">
+                <h1>Información del evento</h1>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title" th:text="${evento.nombre}"></h5>
+                <p class="card-text" th:text="${evento.descripcion}"></p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Fecha:</strong> <span th:text="${evento.fecha}"></span><br><strong> Hora:</strong> <span th:text="${evento.hora}"></span></li>
+                    <li class="list-group-item"><strong>Ubicación:</strong> <span th:text="${evento.ubicacion}"></span></li>
+                    <li class="list-group-item"><strong>Número máximo de participantes:</strong> <span th:text="${evento.numeroParticipantes}"></span></li>
+                    <li class="list-group-item" th:text="${evento.verificacion}"></li>
+                </ul>
+            </div>
+            <div class="card-footer text-muted">
+                <a th:if="${roles != null and (roles.contains('ADMINISTRADOR') or roles.contains('SUPERVISOR'))}" th:href="@{/modificar/{id}(id=${evento.id})}" class="btn" style="background-color: #C39BD3;"><strong>Editar</strong></a>
+                <a th:if="${roles != null and (roles.contains('ADMINISTRADOR') or roles.contains('SUPERVISOR'))}" th:href="@{/eliminar/{id}(id=${evento.id})}" class="btn" style="background-color: #ff684b;"><strong>Borrar</strong></a>
+            </div>
+        </div>
+    </div><br><br>
+</body>
+<footer th:insert="fragments/footer :: pie-pagina" class="footer"></footer>
+</html>
