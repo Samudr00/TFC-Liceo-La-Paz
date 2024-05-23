@@ -9,8 +9,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <style>
         body {
-            background-color: #d6dbdf;
+            background-color: #f8f9fa;
             font-family: Comic Sans MS;
+        }
+            .fade-in {
+            animation: fadeIn 0.2s ease-in-out;
+        }
+    @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
        
         .login-container {
@@ -32,14 +39,7 @@
             border-color: #C39BD3;
             box-shadow: 0 0 0 0.2rem rgba(195, 155, 211, 0.25);
         }
-        .btn-primary {
-            background-color: #C39BD3;
-            border-color: #C39BD3;
-        }
-        .btn-primary:hover {
-            background-color: #A569BD;
-            border-color: #A569BD;
-        }
+        
         .alert-danger {
             margin-top: 10px;
         }
@@ -49,7 +49,7 @@
     <div class="login-container fade-in">
         <div class="login-header text-center">
         
-            <h2>Login</h2>
+            <h1>Login</h1>
         </div>
         <form action="/login" method="post">
             <div class="mb-3">
@@ -60,7 +60,7 @@
                 <label for="password" class="form-label">Contraseña:</label>
                 <input type="password" id="password" name="password" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-primary w-100">Iniciar sesión</button><br>
+            <button type="submit" class="btn w-100" style="background-color: #C39BD3;"><strong>Iniciar sesión</strong></button><br>
             <hr>
             <a class="btn w-100" href="/crearUsuario" style="background-color: #C39BD3;"><strong>Registrarse</strong></a>
         </form>

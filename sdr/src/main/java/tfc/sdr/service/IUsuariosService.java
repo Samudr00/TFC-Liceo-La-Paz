@@ -7,4 +7,6 @@ public interface IUsuariosService {
 	Usuario guardarUsuario(Usuario usuario);
 	
 	Usuario findById(int id);
+
+	Usuario buscarPorUsername(String username);
 }

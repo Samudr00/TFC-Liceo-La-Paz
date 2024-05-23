@@ -10,14 +10,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import tfc.sdr.model.Usuario;
-import tfc.sdr.repository.UsuarioRepository;
 import tfc.sdr.service.IUsuariosService;
 
 @Controller
 public class AuthController {
-
-    @Autowired
-    private UsuarioRepository usuarioRepository;
 
     @Autowired
     private IUsuariosService serviceUsuarios;
@@ -29,7 +25,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public String login(@RequestParam String username, @RequestParam String password, HttpServletRequest request, Model model) {
-        Usuario usuario = usuarioRepository.findByUsername(username);
+        Usuario usuario = serviceUsuarios.buscarPorUsername(username);
         
         if (usuario != null && usuario.getPassword().equals(password)) {
             HttpSession session = request.getSession();
@@ -41,14 +37,12 @@ public class AuthController {
         return "login/login";
     }
 
-
     @GetMapping("/logout")
     public String logout(HttpServletRequest request) {
         HttpSession session = request.getSession();
         session.invalidate();
         return "redirect:/login";
     }
-
 
     @GetMapping("/crearUsuario")
     public String insertarUsuario(Usuario usuario) {

@@ -5,8 +5,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.transaction.annotation.Transactional;
 import tfc.sdr.model.Usuario;
-import tfc.sdr.model.Viaje;
 import tfc.sdr.repository.UsuarioRepository;
 
 @Service
@@ -30,5 +30,12 @@ public class UsuariosServiceImpl implements IUsuariosService{
 			}
 			return null;
 		}
+	 
+	 	@Override
+	    @Transactional(readOnly = true)
+	    public Usuario buscarPorUsername(String username) {
+	        return usuariosRepo.findByUsername(username);
+	    }
+	}
 
-}
+

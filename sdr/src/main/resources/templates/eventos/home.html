@@ -6,77 +6,134 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <style>
-        body {
-            background-color: #ffffff;
-            font-family:  Comic Sans MS;
+    body {
+        font-family: 'Comic Sans MS';
+        background-color: #f8f9fa;
+        color: #000000;
+    }
+    .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
         }
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-        @keyframes fadeIn {
+    @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        .card:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-        .text-column {
-            padding: 30px;
-        }
-         
-    </style>
+    
+     .hero {
+     	background-color: #ffffff;
+     	text-align: left;
+     	padding: 50px;
+     	border-bottom: 1px solid #f0f0f0;
+     	padding-left: 180px;
+    }
+    .hero .content {
+        max-width: 500px;
+        padding: 20px;
+    }
+    .hero h1 {
+        font-size: 2.5 em;
+        margin-bottom: 20px;
+        color: #000000;
+    }
+    .hero p {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+    
+    
+    .section {
+        padding: 60px 0;
+        text-align: center;
+                background-color: #f8f9fa ;
+        
+    }
+    .section h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+    .section p {
+        font-size: 1.2em;
+        margin-bottom: 40px;
+    }
+   
+    .card {
+        border: none;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-10px);
+    }
+    .card-body {
+        padding: 40px;
+    }
+    
+</style>
 </head>
 <body>
     <header th:insert="fragments/menu :: menu-principal"></header>
-        <div class="row">
-            <div class="col">
-                <div class="text-center p-4 fade-in">
-                    <h1 class="mb-4">Bienvenido a Quedadiñas</h1>
-                    <p class="lead"><strong>En Quedadiñas, creemos en la importancia de conectar a las personas a través de eventos significativos y experiencias compartidas. Somos una plataforma dedicada a hacer que la organización y gestión de eventos sea fácil y accesible para todos.</strong></p>
-                    <p>¿Quieres organizar una fiesta de cumpleaños, una reunión de amigos, un torneo deportivo, un viaje o cualquier otro tipo de evento? ¡Estás en el lugar correcto! En Quedadiñas, puedes crear, compartir y gestionar tus propios eventos de manera sencilla y eficiente.</p>
+
+     <div class="hero fade-in" >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" >
+                    <div class="content">
+                        <h1>Bienvenido a Quedadiñas</h1>
+                        <p>En Quedadiñas, creemos en la importancia de conectar a las personas a través de eventos significativos y experiencias compartidas.</p>
+                        <p>¿Quieres organizar una fiesta de cumpleaños, una reunión de amigos, un torneo deportivo, un viaje o cualquier otro tipo de evento? ¡Estás en el lugar correcto!</p>
+                        <a href="/lista" class="btn btn-lg" style="background-color: #C39BD3;"><strong>Explora nuestro catálogo</strong></a>
+                    </div>
                 </div>
-                
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="text-center  p-4 fade-in" style="background-color: #C39BD3;">
-                    <h2>Explora una amplia variedad de eventos</h2>
-                    <p>Lo mejor de todo es que nuestros eventos son creados por los propios usuarios, lo que significa que siempre encontrarás una amplia variedad de opciones para elegir. Desde pequeñas reuniones íntimas, grandes celebraciones, viajes... ¡Aquí hay algo para todos los gustos!</p>
-                </div>
-            </div>
-        </div>
-       
-        <div class="row" style="background-color: #FFFFFF;">
-            <div class="col-md-4">
-                <div class="card text-column fade-in">
-                    <h3>Organiza tus propios viajes</h3>
-                    <p>Además de eventos, también puedes crear y gestionar tus propios viajes en Quedadiñas. Planifica tu próximo viaje con amigos, familiares o compañeros de trabajo y comparte la experiencia con otros usuarios.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card text-column fade-in">
-                    <h3>Descubre eventos populares</h3>
-                    <p>Explora nuestra sección de eventos populares y descubre las últimas tendencias en entretenimiento, cultura, deportes y más. Encuentra eventos emocionantes cerca de ti y únete a la diversión.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card text-column fade-in">
-                    <h3>Conecta con personas afines</h3>
-                    <p>Quedadiñas no solo se trata de eventos, también se trata de conectar con las personas. Únete a nuestra comunidad y conoce a personas con intereses similares. ¡Haz nuevos amigos y crea recuerdos inolvidables juntos!</p>
+                <div class="col-md-6">
+                    <img src="/images/Logo.png" alt="Quedadiñas" class="img-fluid rounded" width="400">
                 </div>
             </div>
         </div>
-         <div class="row">
-            <div class="col">
-                <div class="text-center p-4 fade-in" style="background-color: #d6dbdf;">
-                    <h2>Únete a nuestra comunidad</h2>
-                    <p>Únete a nuestra comunidad hoy mismo y comienza a planificar tus próximos momentos memorables con Quedadiñas.</p>
+    </div>
+
+    <div class="section fade-in">
+        <div class="container">
+        <div class="col">
+            <h2>Explora una amplia variedad de eventos</h2>
+            <p>Encuentra eventos creados por usuarios como tú, desde reuniones íntimas hasta grandes celebraciones.</p>
+        </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Organiza tus propios viajes</h3>
+                            <p class="card-text">Crea y gestiona tus propios viajes con amigos, familiares o compañeros de trabajo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Descubre eventos interesantes</h3>
+                            <p class="card-text">Explora las últimas tendencias en entretenimiento, cultura y deportes cerca de ti.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Conecta con personas de tu rollo</h3>
+                            <p class="card-text">Únete a nuestra comunidad y conoce a personas con intereses similares.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="section fade-in">
+        <div class="container">
+            <h2>Únete a nuestra comunidad</h2>
+            <p>Empieza a planificar tus próximos momentos memorables con Quedadiñas hoy mismo.</p>
+            <a href="/crearUsuario" class="btn btn-lg" style="background-color: #C39BD3;"><strong>Regístrate ahora</strong></a>
+        </div>
+    </div>
+    
 </body>
-<footer th:insert="fragments/footer :: pie-pagina" class="footer"></footer>
+    <footer th:insert="fragments/footer :: pie-pagina" class="footer"></footer>
 </html>
