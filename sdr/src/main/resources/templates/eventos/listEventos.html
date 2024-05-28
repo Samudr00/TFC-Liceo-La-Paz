@@ -36,7 +36,7 @@
         <div class="col mt-5">
 			<form class="d-flex" th:action="@{/search}" method="get" th:object="${search}">
     			<input class="form-control me-2" th:field="*{nombre}" type="text" name="nombre" placeholder="Buscar por nombre..." aria-label="Buscar" required>
-    			<button class="btn btn-outline-secondary me-2" type="submit">Buscar</button>
+    			<button class="btn me-2" style="background-color: #C39BD3;" type="submit">Buscar</button>
     			<a href="/lista" class="btn btn-secondary">Reset</a>
 			</form>
         </div>
